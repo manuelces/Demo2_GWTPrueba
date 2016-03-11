@@ -1,0 +1,2 @@
+serviceClass: demo.dl.client.GreetingService
+path: 7F9724BA1F59E7A14FCCE94478A50AE4.gwt.rpc

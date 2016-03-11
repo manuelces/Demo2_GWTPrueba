@@ -1,0 +1,306 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://myapp.appspot.com/_ah/api",
+  "name" : "distritoendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "discovery" : [ "PUBLIC" ],
+  "adapter" : {
+    "bns" : "https://myapp.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "dl.demo",
+  "ownerName" : "dl.demo",
+  "packagePath" : "server.model.bean",
+  "methods" : {
+    "distritoendpoint.getDistrito" : {
+      "path" : "distrito/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "demo.dl.server.model.bean.DistritoEndpoint.getDistrito",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "distritoendpoint.listDistrito" : {
+      "path" : "distrito",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "demo.dl.server.model.bean.DistritoEndpoint.listDistrito",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "distritoendpoint.insertDistrito" : {
+      "path" : "distrito",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "demo.dl.server.model.bean.DistritoEndpoint.insertDistrito",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "distritoendpoint.updateDistrito" : {
+      "path" : "distrito",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "demo.dl.server.model.bean.DistritoEndpoint.updateDistrito",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "distritoendpoint.removeDistrito" : {
+      "path" : "distrito/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "demo.dl.server.model.bean.DistritoEndpoint.removeDistrito",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Distrito" : {
+        "id" : "Distrito",
+        "type" : "object",
+        "properties" : {
+          "idDistrito" : {
+            "type" : "string"
+          },
+          "codigo" : {
+            "type" : "string"
+          },
+          "operacion" : {
+            "type" : "string"
+          },
+          "codeDistrito" : {
+            "type" : "string"
+          },
+          "codeProvincia" : {
+            "type" : "string"
+          },
+          "beanProvincia" : {
+            "$ref" : "Provincia"
+          },
+          "codeDepartamento" : {
+            "type" : "string"
+          },
+          "descDepartamento" : {
+            "type" : "string"
+          },
+          "codePais" : {
+            "type" : "string"
+          },
+          "descPais" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Provincia" : {
+        "id" : "Provincia",
+        "type" : "object",
+        "properties" : {
+          "idProvincia" : {
+            "type" : "string"
+          },
+          "codigo" : {
+            "type" : "string"
+          },
+          "operacion" : {
+            "type" : "string"
+          },
+          "codeProvincia" : {
+            "type" : "string"
+          },
+          "codeDepartamento" : {
+            "type" : "string"
+          },
+          "beanDepartamento" : {
+            "$ref" : "Departamento"
+          },
+          "codePais" : {
+            "type" : "string"
+          },
+          "descPais" : {
+            "type" : "string"
+          },
+          "listDistrito" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Distrito"
+            }
+          }
+        }
+      },
+      "Departamento" : {
+        "id" : "Departamento",
+        "type" : "object",
+        "properties" : {
+          "idDepartamento" : {
+            "type" : "string"
+          },
+          "codigo" : {
+            "type" : "string"
+          },
+          "beanPais" : {
+            "$ref" : "Pais"
+          },
+          "codePais" : {
+            "type" : "string"
+          },
+          "operacion" : {
+            "type" : "string"
+          },
+          "codeDepartamento" : {
+            "type" : "string"
+          },
+          "listProvincia" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Provincia"
+            }
+          }
+        }
+      },
+      "Pais" : {
+        "id" : "Pais",
+        "type" : "object",
+        "properties" : {
+          "idPais" : {
+            "type" : "string"
+          },
+          "codigo" : {
+            "type" : "string"
+          },
+          "operacion" : {
+            "type" : "string"
+          },
+          "codePais" : {
+            "type" : "string"
+          },
+          "listDepartamento" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Departamento"
+            }
+          }
+        }
+      },
+      "CollectionResponse_Distrito" : {
+        "id" : "CollectionResponse_Distrito",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Distrito"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "demo.dl.server.model.bean.DistritoEndpoint.getDistrito" : {
+        "response" : {
+          "$ref" : "Distrito"
+        }
+      },
+      "demo.dl.server.model.bean.DistritoEndpoint.listDistrito" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Distrito"
+        }
+      },
+      "demo.dl.server.model.bean.DistritoEndpoint.insertDistrito" : {
+        "request" : {
+          "$ref" : "Distrito"
+        },
+        "response" : {
+          "$ref" : "Distrito"
+        }
+      },
+      "demo.dl.server.model.bean.DistritoEndpoint.updateDistrito" : {
+        "request" : {
+          "$ref" : "Distrito"
+        },
+        "response" : {
+          "$ref" : "Distrito"
+        }
+      },
+      "demo.dl.server.model.bean.DistritoEndpoint.removeDistrito" : {
+      }
+    }
+  }
+}

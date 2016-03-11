@@ -1,0 +1,306 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://myapp.appspot.com/_ah/api",
+  "name" : "paisendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "discovery" : [ "PUBLIC" ],
+  "adapter" : {
+    "bns" : "https://myapp.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "dl.demo",
+  "ownerName" : "dl.demo",
+  "packagePath" : "server.model.bean",
+  "methods" : {
+    "paisendpoint.updatePais" : {
+      "path" : "pais",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "demo.dl.server.model.bean.PaisEndpoint.updatePais",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "paisendpoint.insertPais" : {
+      "path" : "pais",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "demo.dl.server.model.bean.PaisEndpoint.insertPais",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "paisendpoint.listPais" : {
+      "path" : "pais",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "demo.dl.server.model.bean.PaisEndpoint.listPais",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "paisendpoint.removePais" : {
+      "path" : "pais/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "demo.dl.server.model.bean.PaisEndpoint.removePais",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "paisendpoint.getPais" : {
+      "path" : "pais/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "demo.dl.server.model.bean.PaisEndpoint.getPais",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Pais" : {
+        "id" : "Pais",
+        "type" : "object",
+        "properties" : {
+          "idPais" : {
+            "type" : "string"
+          },
+          "codigo" : {
+            "type" : "string"
+          },
+          "operacion" : {
+            "type" : "string"
+          },
+          "codePais" : {
+            "type" : "string"
+          },
+          "listDepartamento" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Departamento"
+            }
+          }
+        }
+      },
+      "Departamento" : {
+        "id" : "Departamento",
+        "type" : "object",
+        "properties" : {
+          "idDepartamento" : {
+            "type" : "string"
+          },
+          "codigo" : {
+            "type" : "string"
+          },
+          "beanPais" : {
+            "$ref" : "Pais"
+          },
+          "codePais" : {
+            "type" : "string"
+          },
+          "operacion" : {
+            "type" : "string"
+          },
+          "codeDepartamento" : {
+            "type" : "string"
+          },
+          "listProvincia" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Provincia"
+            }
+          }
+        }
+      },
+      "Provincia" : {
+        "id" : "Provincia",
+        "type" : "object",
+        "properties" : {
+          "idProvincia" : {
+            "type" : "string"
+          },
+          "codigo" : {
+            "type" : "string"
+          },
+          "operacion" : {
+            "type" : "string"
+          },
+          "codeProvincia" : {
+            "type" : "string"
+          },
+          "codeDepartamento" : {
+            "type" : "string"
+          },
+          "beanDepartamento" : {
+            "$ref" : "Departamento"
+          },
+          "codePais" : {
+            "type" : "string"
+          },
+          "descPais" : {
+            "type" : "string"
+          },
+          "listDistrito" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Distrito"
+            }
+          }
+        }
+      },
+      "Distrito" : {
+        "id" : "Distrito",
+        "type" : "object",
+        "properties" : {
+          "idDistrito" : {
+            "type" : "string"
+          },
+          "codigo" : {
+            "type" : "string"
+          },
+          "operacion" : {
+            "type" : "string"
+          },
+          "codeDistrito" : {
+            "type" : "string"
+          },
+          "codeProvincia" : {
+            "type" : "string"
+          },
+          "beanProvincia" : {
+            "$ref" : "Provincia"
+          },
+          "codeDepartamento" : {
+            "type" : "string"
+          },
+          "descDepartamento" : {
+            "type" : "string"
+          },
+          "codePais" : {
+            "type" : "string"
+          },
+          "descPais" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_Pais" : {
+        "id" : "CollectionResponse_Pais",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Pais"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "demo.dl.server.model.bean.PaisEndpoint.updatePais" : {
+        "request" : {
+          "$ref" : "Pais"
+        },
+        "response" : {
+          "$ref" : "Pais"
+        }
+      },
+      "demo.dl.server.model.bean.PaisEndpoint.insertPais" : {
+        "request" : {
+          "$ref" : "Pais"
+        },
+        "response" : {
+          "$ref" : "Pais"
+        }
+      },
+      "demo.dl.server.model.bean.PaisEndpoint.listPais" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Pais"
+        }
+      },
+      "demo.dl.server.model.bean.PaisEndpoint.removePais" : {
+      },
+      "demo.dl.server.model.bean.PaisEndpoint.getPais" : {
+        "response" : {
+          "$ref" : "Pais"
+        }
+      }
+    }
+  }
+}
